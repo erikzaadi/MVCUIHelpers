@@ -1,0 +1,4 @@
+Icon and button html helpers that uses the fam fam icon library.
+See http://www.ajaxbestiary.com/Labs/SilkSprite/ for details.
+
+Be sure to copy the sprites directory and import the sprites.css

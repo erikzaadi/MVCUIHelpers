@@ -1,0 +1,16 @@
+Icon and button html helpers that uses the jQuery UI css theme icons.
+See http://wiki.jqueryui.com/jQuery-UI-CSS-Framework for details.
+
+Be sure to include the jQueryUI theme css, see http://jqueryui.com/download
+
+Please note that the base jQuery UI Class for icons (ui-icon) is by default using display:block
+If used in a button, it's recommended to overload the settings using the innerIconHtmlAttributes.
+E.g
+<%= Html.jQueryUIIconButton("ButtonText,
+            jQueryUIIconsEnum.icon_info,
+            ButtonType.Submit,
+            MVCUIHelpers.Shared.Direction.Ltr,
+            null,
+            null,
+            new { style="display:inline !important;"})
+        {
