@@ -376,7 +376,7 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
     {
         internal override string IconBaseCSSClass
         {
-            get { return "ui-icon"; }
+            get { return "ui-icon ui-icon-helper"; }
         }
     }
 }
