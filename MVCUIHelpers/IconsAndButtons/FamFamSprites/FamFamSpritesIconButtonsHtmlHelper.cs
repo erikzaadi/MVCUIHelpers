@@ -139,5 +139,43 @@ namespace MVCUIHelpers.IconsAndButtons.FamFamSprites
                 innerSpanHtmlAttributes,
                 innerIconHtmlAttributes);
         }
+
+        public static string FamFamSpritesLink(this HtmlHelper helper,
+            string inText,
+            FamFamSpritesEnum inIcon,
+            string inUrl,
+            MVCUIHelpers.Shared.Direction inDirection,
+            object htmlAttributes,
+            object innerSpanHtmlAttributes,
+            object innerIconHtmlAttributes)
+        {
+            return mFamFamSpritesAndButtonsRepository.GetSpriteIconLink(
+                inText,
+                inIcon,
+                inDirection,
+                inUrl,
+                htmlAttributes,
+                innerSpanHtmlAttributes,
+                innerIconHtmlAttributes);
+        }
+
+        public static string FamFamSpritesForElement(this HtmlHelper helper,
+            string inText,
+            FamFamSpritesEnum inIcon,
+            string inElement,
+            MVCUIHelpers.Shared.Direction inDirection,
+            object htmlAttributes,
+            object innerSpanHtmlAttributes,
+            object innerIconHtmlAttributes)
+        {
+            return mFamFamSpritesAndButtonsRepository.GetSpriteIconForElement(
+                inText,
+                inIcon,
+                inDirection,
+                inElement,
+                htmlAttributes,
+                innerSpanHtmlAttributes,
+                innerIconHtmlAttributes);
+        }
     }
 }

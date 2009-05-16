@@ -145,5 +145,45 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 innerIconHtmlAttributes);
         }
 
+        public static string jQueryUIIconLink(this HtmlHelper helper,
+            string inText,
+            jQueryUIIconsEnum inIcon,
+            string inUrl,
+            MVCUIHelpers.Shared.ButtonType inButtonType,
+            MVCUIHelpers.Shared.Direction inDirection,
+            object htmlAttributes,
+            object innerSpanHtmlAttributes,
+            object innerIconHtmlAttributes)
+        {
+            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconLink(
+                inText,
+                inIcon,
+                inDirection,
+                inUrl,
+                htmlAttributes,
+                innerSpanHtmlAttributes,
+                innerIconHtmlAttributes);
+        }
+
+        public static string jQueryUIIconForElement(this HtmlHelper helper,
+          string inText,
+          jQueryUIIconsEnum inIcon,
+          string inElement,
+          MVCUIHelpers.Shared.ButtonType inButtonType,
+          MVCUIHelpers.Shared.Direction inDirection,
+          object htmlAttributes,
+          object innerSpanHtmlAttributes,
+          object innerIconHtmlAttributes)
+        {
+            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconForElement(
+                inText,
+                inIcon,
+                inDirection,
+                inElement,
+                htmlAttributes,
+                innerSpanHtmlAttributes,
+                innerIconHtmlAttributes);
+        }
+
     }
 }
