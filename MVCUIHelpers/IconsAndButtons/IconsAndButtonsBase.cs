@@ -29,10 +29,11 @@ namespace MVCUIHelpers.IconsAndButtons
         {
             TagBuilder spanBuilder = new TagBuilder("span");
             spanBuilder.InnerHtml = "&nbsp;";
-            spanBuilder.MergeAttribute("class", string.Format("{0} {1}", IconBaseCSSClass, Shared.GetDescription(inIcon)));
 
             if (htmlAttributes != null)
                 spanBuilder.MergeAttributes(new RouteValueDictionary(htmlAttributes), true);
+
+            spanBuilder.AddCssClass(string.Format("{0} {1}", IconBaseCSSClass, Shared.GetDescription(inIcon)));
 
             return spanBuilder.ToString();
         }
