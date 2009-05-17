@@ -10,11 +10,13 @@ namespace MVCUIHelpers.IconsAndButtons
 {
     interface IIconsAndButtons<IconType>
     {
-        string IIconBaseCSSClass { get; }
+        string IIconBaseCSSClassLtr { get; }
+        string IIconBaseCSSClassRtl { get; }
 
         string GetSpriteIcon(
-          IconType inIcon,
-          object htmlAttributes);
+            IconType inIcon,
+            object htmlAttributes,
+            MVCUIHelpers.Shared.Direction inDirection);
 
         string GetSpriteIconButton(
            string inText,

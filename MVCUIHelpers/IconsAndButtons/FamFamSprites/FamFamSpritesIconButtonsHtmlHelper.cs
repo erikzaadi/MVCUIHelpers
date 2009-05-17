@@ -23,7 +23,9 @@ namespace MVCUIHelpers.IconsAndButtons.FamFamSprites
            FamFamSpritesEnum inIcon,
            object htmlAttributes)
         {
-            return mFamFamSpritesAndButtonsRepository.GetSpriteIcon(inIcon, htmlAttributes);
+            return mFamFamSpritesAndButtonsRepository.GetSpriteIcon(inIcon,
+                htmlAttributes,
+                Shared.Direction.Ltr);
         }
 
         public static string FamFamSpritesButton(this HtmlHelper helper,

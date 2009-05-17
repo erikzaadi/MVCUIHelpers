@@ -2027,7 +2027,11 @@ namespace MVCUIHelpers.IconsAndButtons.FamFamSprites
    */
     public class FamFamSpritesIconAndButtonsRepository : IconsAndButtonsBase<FamFamSpritesEnum>
     {
-        internal override string IconBaseCSSClass
+        internal override string IconBaseCSSClassRtl
+        {
+            get { return "ss_sprite"; }
+        }
+        internal override string IconBaseCSSClassLtr
         {
             get { return "ss_sprite"; }
         }

@@ -21,14 +21,17 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
         public static string jQueryUIIcon(this HtmlHelper helper,
            jQueryUIIconsEnum inIcon)
         {
-            return jQueryUIIcon(helper, inIcon, null);
+            return jQueryUIIcon(helper, inIcon, null, Shared.Direction.Ltr);
         }
 
         public static string jQueryUIIcon(this HtmlHelper helper,
-           jQueryUIIconsEnum inIcon,
-           object htmlAttributes)
+            jQueryUIIconsEnum inIcon,
+            object htmlAttributes,
+            MVCUIHelpers.Shared.Direction inDirection)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIcon(inIcon, htmlAttributes);
+            return mjQueryUIIconsAndButtonsRepository.GetSpriteIcon(inIcon,
+                htmlAttributes,
+                inDirection);
         }
 
         public static string jQueryUIIconButton(this HtmlHelper helper,
@@ -149,7 +152,6 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
             string inText,
             jQueryUIIconsEnum inIcon,
             string inUrl,
-            MVCUIHelpers.Shared.ButtonType inButtonType,
             MVCUIHelpers.Shared.Direction inDirection,
             object htmlAttributes,
             object innerSpanHtmlAttributes,
@@ -169,7 +171,6 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
           string inText,
           jQueryUIIconsEnum inIcon,
           string inElement,
-          MVCUIHelpers.Shared.ButtonType inButtonType,
           MVCUIHelpers.Shared.Direction inDirection,
           object htmlAttributes,
           object innerSpanHtmlAttributes,

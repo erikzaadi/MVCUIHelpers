@@ -374,9 +374,13 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
      */
     public class jQueryUIIconsAndButtonsRepository : IconsAndButtonsBase<jQueryUIIconsEnum>
     {
-        internal override string IconBaseCSSClass
+        internal override string IconBaseCSSClassLtr
         {
-            get { return "ui-icon ui-icon-helper"; }
+            get { return "ui-icon ui-icon-helper-ltr"; }
+        }
+        internal override string IconBaseCSSClassRtl
+        {
+            get { return "ui-icon ui-icon-helper-rtl"; }
         }
     }
 }

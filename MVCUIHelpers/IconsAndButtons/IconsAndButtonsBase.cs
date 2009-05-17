@@ -12,13 +12,27 @@ namespace MVCUIHelpers.IconsAndButtons
     {
         #region IIconsAndButtons<IconType> Members
 
-        internal abstract string IconBaseCSSClass { get; }
+        internal abstract string IconBaseCSSClassLtr { get; }
+        internal abstract string IconBaseCSSClassRtl { get; }
 
-        string IIconsAndButtons<IconType>.IIconBaseCSSClass { get { return IconBaseCSSClass; } }
+        string IIconsAndButtons<IconType>.IIconBaseCSSClassRtl { get { return IconBaseCSSClassRtl; } }
+        string IIconsAndButtons<IconType>.IIconBaseCSSClassLtr { get { return IconBaseCSSClassLtr; } }
 
         public virtual string GetSpriteIcon(
            IconType inIcon,
-           object htmlAttributes)
+           object htmlAttributes,
+            MVCUIHelpers.Shared.Direction inDirection)
+        {
+            return GetSpriteIcon(
+                inIcon,
+                new RouteValueDictionary(htmlAttributes),
+                inDirection);
+        }
+            
+        public virtual string GetSpriteIcon(
+            IconType inIcon,
+            RouteValueDictionary htmlAttributes,
+            MVCUIHelpers.Shared.Direction inDirection)
         {
             TagBuilder spanBuilder = new TagBuilder("span");
             spanBuilder.InnerHtml = "&nbsp;";
@@ -26,7 +40,9 @@ namespace MVCUIHelpers.IconsAndButtons
             if (htmlAttributes != null)
                 spanBuilder.MergeAttributes(new RouteValueDictionary(htmlAttributes), true);
 
-            spanBuilder.AddCssClass(string.Format("{0} {1}", IconBaseCSSClass, Shared.GetDescription(inIcon)));
+            spanBuilder.AddCssClass(string.Format("{0} {1}",
+                inDirection == Shared.Direction.Rtl ? IconBaseCSSClassRtl : IconBaseCSSClassLtr,
+                Shared.GetDescription(inIcon)));
 
             return spanBuilder.ToString();
         }
@@ -40,18 +56,32 @@ namespace MVCUIHelpers.IconsAndButtons
             object innerSpanHtmlAttributes,
             object innerIconHtmlAttributes)
         {
-
-            TagBuilder buttonBuilder = new TagBuilder("button");
-            if (htmlAttributes != null)
-                buttonBuilder.MergeAttributes(new RouteValueDictionary(htmlAttributes), true);
-            buttonBuilder.Attributes["type"] = Shared.GetDescription(inButtonType);
+            return GetSpriteIconButton(
+                inText,
+                inIcon,
+                inButtonType,
+                inDirection,
+                new RouteValueDictionary(htmlAttributes),
+                new RouteValueDictionary(innerSpanHtmlAttributes),
+                new RouteValueDictionary(innerIconHtmlAttributes));
+        }
+        public virtual string GetSpriteIconButton(
+            string inText,
+            IconType inIcon,
+            MVCUIHelpers.Shared.ButtonType inButtonType,
+            MVCUIHelpers.Shared.Direction inDirection,
+            RouteValueDictionary htmlAttributes,
+            RouteValueDictionary innerSpanHtmlAttributes,
+            RouteValueDictionary innerIconHtmlAttributes)
+        {
+            htmlAttributes.Add("type", Shared.GetDescription(inButtonType));
 
             return GetSpriteIconForElement(
                 inText,
                 inIcon,
                 inDirection,
                 "button",
-                buttonBuilder.Attributes,
+                htmlAttributes,
                 innerSpanHtmlAttributes,
                 innerIconHtmlAttributes);
         }
@@ -65,17 +95,32 @@ namespace MVCUIHelpers.IconsAndButtons
             object innerSpanHtmlAttributes,
             object innerIconHtmlAttributes)
         {
-            TagBuilder aTag = new TagBuilder("a");
-            if (htmlAttributes != null)
-                aTag.MergeAttributes(new RouteValueDictionary(htmlAttributes));
-            aTag.Attributes.Add("href", inUrl);
+            return GetSpriteIconLink(
+                inText,
+                inIcon,
+                inDirection,
+                inUrl,
+                new RouteValueDictionary(htmlAttributes),
+                new RouteValueDictionary(innerSpanHtmlAttributes),
+                new RouteValueDictionary(innerIconHtmlAttributes));
+        }
 
+        public virtual string GetSpriteIconLink(
+            string inText,
+            IconType inIcon,
+            MVCUIHelpers.Shared.Direction inDirection,
+            string inUrl,
+            RouteValueDictionary htmlAttributes,
+            RouteValueDictionary innerSpanHtmlAttributes,
+            RouteValueDictionary innerIconHtmlAttributes)
+        {
+            htmlAttributes.Add("href", inUrl);
             return GetSpriteIconForElement(
                 inText,
                 inIcon,
                 inDirection,
                 "a",
-                aTag.Attributes,
+                htmlAttributes,
                 innerSpanHtmlAttributes,
                 innerIconHtmlAttributes);
         }
@@ -89,8 +134,26 @@ namespace MVCUIHelpers.IconsAndButtons
             object innerSpanHtmlAttributes,
             object innerIconHtmlAttributes)
         {
-            string iconTag = GetSpriteIcon(inIcon, innerIconHtmlAttributes);
+            return GetSpriteIconForElement(
+                inText,
+                inIcon,
+                inDirection,
+                inElement,
+                new RouteValueDictionary(htmlAttributes),
+                new RouteValueDictionary(innerIconHtmlAttributes),
+                new RouteValueDictionary(innerIconHtmlAttributes));
+        }
 
+        public virtual string GetSpriteIconForElement(
+            string inText,
+            IconType inIcon,
+            MVCUIHelpers.Shared.Direction inDirection,
+            string inElement,
+            RouteValueDictionary htmlAttributes,
+            RouteValueDictionary innerSpanHtmlAttributes,
+            RouteValueDictionary innerIconHtmlAttributes)
+        {
+            string iconTag = GetSpriteIcon(inIcon, innerIconHtmlAttributes, inDirection);
             TagBuilder elementBuilder = new TagBuilder(inElement);
             TagBuilder spanBuilder = new TagBuilder("span");
             if (htmlAttributes != null)
@@ -99,7 +162,7 @@ namespace MVCUIHelpers.IconsAndButtons
                 spanBuilder.MergeAttributes(new RouteValueDictionary(innerSpanHtmlAttributes), true);
             spanBuilder.InnerHtml = inText;
 
-            elementBuilder.InnerHtml = inDirection == MVCUIHelpers.Shared.Direction.Ltr ?
+            elementBuilder.InnerHtml = inDirection == MVCUIHelpers.Shared.Direction.Rtl ?
                 (spanBuilder.ToString() + iconTag) :
                 (iconTag + spanBuilder.ToString());
 
