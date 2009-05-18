@@ -28,7 +28,7 @@ namespace MVCUIHelpers.IconsAndButtons
                 new RouteValueDictionary(htmlAttributes),
                 inDirection);
         }
-            
+
         public virtual string GetSpriteIcon(
             IconType inIcon,
             RouteValueDictionary htmlAttributes,
@@ -74,8 +74,10 @@ namespace MVCUIHelpers.IconsAndButtons
             RouteValueDictionary innerSpanHtmlAttributes,
             RouteValueDictionary innerIconHtmlAttributes)
         {
-            htmlAttributes.Add("type", Shared.GetDescription(inButtonType));
-
+            if (htmlAttributes != null)
+                htmlAttributes.Add("type", Shared.GetDescription(inButtonType));
+            else
+                htmlAttributes = new RouteValueDictionary(new { @type = Shared.GetDescription(inButtonType) });
             return GetSpriteIconForElement(
                 inText,
                 inIcon,
@@ -114,15 +116,19 @@ namespace MVCUIHelpers.IconsAndButtons
             RouteValueDictionary innerSpanHtmlAttributes,
             RouteValueDictionary innerIconHtmlAttributes)
         {
-            htmlAttributes.Add("href", inUrl);
+            if (htmlAttributes != null)
+                htmlAttributes.Add("href", inUrl);
+            else
+                htmlAttributes = new RouteValueDictionary(new { href = inUrl });
+
             return GetSpriteIconForElement(
-                inText,
-                inIcon,
-                inDirection,
-                "a",
-                htmlAttributes,
-                innerSpanHtmlAttributes,
-                innerIconHtmlAttributes);
+             inText,
+             inIcon,
+             inDirection,
+             "a",
+             htmlAttributes,
+             innerSpanHtmlAttributes,
+             innerIconHtmlAttributes);
         }
 
         public virtual string GetSpriteIconForElement(

@@ -93,7 +93,7 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
             jQueryUIIconsEnum inIcon,
             MVCUIHelpers.Shared.ButtonType inButtonType)
         {
-            return jQueryUIIconButton(helper,
+            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconButton(
                 inText,
                 inIcon,
                 inButtonType,
