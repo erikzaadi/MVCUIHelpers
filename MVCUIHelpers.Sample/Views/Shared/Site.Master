@@ -19,7 +19,7 @@
                     MVC UI Helpers Sample Application</h1>
             </div>
             <div id="logindisplay">
-            &nbsp;
+                &nbsp;
             </div>
             <div id="menucontainer">
                 <ul id="menu">
@@ -27,12 +27,13 @@
                         <%= Html.ActionLink("Home", "Index", "Home")%></li>
                     <li>
                         <%= Html.ActionLink("About", "About", "Home")%></li>
-                  <li>
+                    <li>
                         <%= Html.ActionLink("Content", "Content", "Home")%></li>
                 </ul>
             </div>
         </div>
         <div id="main">
+            <% Html.RenderPartial("BreadCrumbs"); %>
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             <div id="footer">
             </div>

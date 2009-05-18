@@ -8,7 +8,7 @@
         jQuery UI All Icons</h2>
     <% foreach (var icon in Enum.GetValues(typeof(jQueryUIIconsEnum)))
        { %>
-    <p class="clear">
+    <div class="clear">
         <h3>
             <%= icon %></h3>
         <div class="clear">
@@ -48,6 +48,6 @@
             <span class="ui-state-processing" title="ui-state-processing">
                 <%= Html.jQueryUIIcon((jQueryUIIconsEnum)icon) %>
                 ui-state-processing</span></div>
-    </p>
+    </div>
     <%} %>
 </asp:Content>
