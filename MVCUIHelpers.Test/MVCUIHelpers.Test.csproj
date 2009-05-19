@@ -36,13 +36,35 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Controllers\IconsAndButtonsControllerTest.cs" />
+    <Compile Include="FamFamSpritesIconButtonsHtmlHelperTest.cs" />
+    <Compile Include="jQueryIconsAndButtonsHtmlHelperTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AuthoringTests.txt" />
+    <ProjectReference Include="..\MVCUIHelpers.Sample\MVCUIHelpers.Sample.csproj">
+      <Project>{6249F91A-5F51-4CAE-8CCB-7D33D6450223}</Project>
+      <Name>MVCUIHelpers.Sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVCUIHelpers\MVCUIHelpers.csproj">
+      <Project>{9D85C70B-DFC7-4E88-901C-A84DBBA135E0}</Project>
+      <Name>MVCUIHelpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

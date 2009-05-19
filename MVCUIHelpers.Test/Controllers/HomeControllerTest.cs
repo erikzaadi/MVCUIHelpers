@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MVCUIHelpers.Sample;
 using MVCUIHelpers.Sample.Controllers;
 
-namespace MVCUIHelpers.Sample.Tests.Controllers
+namespace MVCUIHelpers.Tests.Controllers
 {
     [TestClass]
     public class HomeControllerTest

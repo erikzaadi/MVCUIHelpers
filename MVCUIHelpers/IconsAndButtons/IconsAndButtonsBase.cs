@@ -260,7 +260,8 @@ namespace MVCUIHelpers.IconsAndButtons
         /// <param name="inIcon">Icon to show</param>
         /// <param name="inDirection">Direction (Ltr|Rtl)</param>
         /// <param name="inElement">Html Element
-        /// <example><code>a|div|li</code> etc</example></param>
+        /// <example><code>a|div|li</code> etc</example>
+        /// <remarks>Note : Can not be empty</remarks></param>
         /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
         /// <param name="innerSpanHtmlAttributes">Additional html attributes dictionary to set to the created span for the button text</param>
         /// <param name="innerIconHtmlAttributes">Additional html attributes dictionary to set to the created span for the Icon</param>
@@ -280,7 +281,7 @@ namespace MVCUIHelpers.IconsAndButtons
                 inDirection,
                 inElement,
                 new RouteValueDictionary(htmlAttributes),
-                new RouteValueDictionary(innerIconHtmlAttributes),
+                new RouteValueDictionary(innerSpanHtmlAttributes),
                 new RouteValueDictionary(innerIconHtmlAttributes));
         }
 
@@ -291,7 +292,8 @@ namespace MVCUIHelpers.IconsAndButtons
         /// <param name="inIcon">Icon to show</param>
         /// <param name="inDirection">Direction (Ltr|Rtl)</param>
         /// <param name="inElement">Html Element
-        /// <example><code>a|div|li</code> etc</example></param>
+        /// <example><code>a|div|li</code> etc</example>
+        /// <remarks>Note : Can not be empty</remarks></param>
         /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
         /// <param name="innerSpanHtmlAttributes">Additional html attributes dictionary to set to the created span for the button text</param>
         /// <param name="innerIconHtmlAttributes">Additional html attributes dictionary to set to the created span for the Icon</param>

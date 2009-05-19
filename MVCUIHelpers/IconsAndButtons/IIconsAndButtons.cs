@@ -18,7 +18,7 @@ namespace MVCUIHelpers.IconsAndButtons
     /// future extendability
     /// </summary>
     /// <typeparam name="IconType">Enum type for Icons</typeparam>
-    interface IIconsAndButtons<IconType>
+    public interface IIconsAndButtons<IconType>
     {
         /// <summary>
         /// Base CSS class used for Left to right direction
@@ -152,7 +152,8 @@ namespace MVCUIHelpers.IconsAndButtons
         /// <param name="inIcon">Icon to show</param>
         /// <param name="inDirection">Direction (Ltr|Rtl)</param>
         /// <param name="inElement">Html Element
-        /// <example><code>a|div|li</code> etc</example></param>
+        /// <example><code>a|div|li</code> etc</example>
+        /// <remarks>Note : Can not be empty</remarks></param>
         /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
         /// <param name="innerSpanHtmlAttributes">Additional html attributes dictionary to set to the created span for the button text</param>
         /// <param name="innerIconHtmlAttributes">Additional html attributes dictionary to set to the created span for the Icon</param>
@@ -173,7 +174,8 @@ namespace MVCUIHelpers.IconsAndButtons
         /// <param name="inIcon">Icon to show</param>
         /// <param name="inDirection">Direction (Ltr|Rtl)</param>
         /// <param name="inElement">Html Element
-        /// <example><code>a|div|li</code> etc</example></param>
+        /// <example><code>a|div|li</code> etc</example>
+        /// <remarks>Note : Can not be empty</remarks></param>
         /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
         /// <param name="innerSpanHtmlAttributes">Additional html attributes dictionary to set to the created span for the button text</param>
         /// <param name="innerIconHtmlAttributes">Additional html attributes dictionary to set to the created span for the Icon</param>
