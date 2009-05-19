@@ -10,8 +10,16 @@ using System.ComponentModel;
 
 namespace MVCUIHelpers
 {
+    /// <summary>
+    /// Common structs and methods
+    /// </summary>
     public static class Shared
     {
+        /// <summary>
+        /// Button Type enum
+        /// 
+        /// Sets the button html element type properties
+        /// </summary>
         public enum ButtonType
         {
             [Description("button")]
@@ -22,12 +30,24 @@ namespace MVCUIHelpers
             Submit
         }
 
+        /// <summary>
+        /// Sets the icons directions
+        /// 
+        /// Left to right or Right to left
+        /// </summary>
         public enum Direction
         {
             Ltr,
             Rtl
         }
+        
         //http://www.codeproject.com/KB/cs/enumwithdescription.aspx?msg=649306#xx649306xx
+        /// <summary>
+        /// Get's the description string of a Enum value
+        /// </summary>
+        /// <typeparam name="EnumType">Type of Enum</typeparam>
+        /// <param name="value">Enum Value</param>
+        /// <returns>Enum value description</returns>
         public static string GetDescription<EnumType>(EnumType value)
         {
             FieldInfo fi = value.GetType().GetField(value.ToString());
@@ -36,20 +56,18 @@ namespace MVCUIHelpers
                   typeof(DescriptionAttribute), false);
             return (attributes.Length > 0) ? attributes[0].Description : value.ToString();
         }
-    }
 
-    //http://dotnet.org.za/johanvw/archive/2008/10/21/applying-c-generics-when-working-with-enum.aspx
-    //http://geekswithblogs.net/WillSmith/archive/2008/06/28/c-generics-for-enums.aspx
-    public static class enumFinder<T>
-    {
-        public static T ParseMe(string value)
-        {
-            if (!typeof(T).IsEnum)
-            {
-                throw new NotSupportedException("T must be an Enum");
-            }
-            T foundEnum = (T)Enum.Parse(typeof(T), value);
-            return foundEnum;
-        }
+        #region Consts
+
+        /// <summary>
+        /// Inner tag used to render Icons and Text
+        /// </summary>
+        public static string DefaultInnerContainerHtmlTag { get { return "span"; } }
+        /// <summary>
+        /// Spacer for empty elements
+        /// </summary>
+        public static string DefaultSpacerHtmlTag { get { return "&nbsp;"; } }
+
+        #endregion Consts
     }
 }

@@ -39,4 +39,14 @@
         <code>&lt;%= Html.jQueryUIIconButton("SampleButton", jQueryUIIconsEnum.search, MVCUIHelpers.Shared.ButtonType.Button)
             %&gt;</code>
     </div>
+    <h3>
+        Generic Element:</h3>
+    <h4>
+        <%= Html.jQueryUIIconForElement("SampleInnerText", jQueryUIIconsEnum.calculator, "div") %></h4>
+    <h4 class="clear">
+        Code</h4>
+    <div>
+        <code>&lt;%= Html.jQueryUIIconForElement("SampleInnerText", jQueryUIIconsEnum.calculator,
+            "div") %&gt;</code>
+    </div>
 </asp:Content>

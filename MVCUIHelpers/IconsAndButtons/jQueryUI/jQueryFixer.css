@@ -1,0 +1,10 @@
+﻿.ui-icon-helper-ltr
+{
+	float: left; 
+	margin-right: .2em;
+}
+.ui-icon-helper-rtl
+{
+	float: right; 
+	margin-left: .2em;
+}

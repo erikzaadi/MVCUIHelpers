@@ -47,4 +47,16 @@
                 %&gt;</code>
         </div>
     </h4>
+    <h3>
+        Generic Element:</h3>
+    <h4>
+        <%= Html.FamFamSpritesForElement("Sample Inner Text", FamFamSpritesEnum.bin, "div") %></h4>
+    <h4 class="clear">
+        Code</h4>
+    <h4>
+        <div>
+            <code>&lt;= Html.FamFamSpritesForElement("Sample Inner Text", FamFamSpritesEnum.bin,
+                "div") %&gt;</code>
+        </div>
+    </h4>
 </asp:Content>

@@ -6,6 +6,9 @@ using System.ComponentModel;
 
 namespace MVCUIHelpers.IconsAndButtons.jQueryUI
 {
+    /// <summary>
+    /// jQuery UI Icons Enum
+    /// </summary>
     public enum jQueryUIIconsEnum
     {
         [Description("ui-icon-carat-1-n")]
@@ -372,12 +375,34 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
         });
         $div.html(html.join(''));
      */
+    /// <summary>
+    /// jQuery UI Icons and Buttons Repository Class
+    /// 
+    /// Implementation of the Icons and Buttons Repository
+    /// that uses the jQuery UI CSS Theming api
+    /// <see cref="http://jQueryUII.com/Themes"/>
+    /// 
+    /// You'll need to include the ui.theme.css for your
+    /// chose jQuery UI Theme in order to use this repository
+    /// 
+    /// Furthermore, please include the jQueryFixer.css
+    /// (or add the lines to your CSS), which includes the two
+    /// helper css classes for each direction :
+    /// <example>ui-icon-helper-ltr</example>
+    /// <example>ui-icon-helper-rtl</example>
+    /// </summary>
     public class jQueryUIIconsAndButtonsRepository : IconsAndButtonsBase<jQueryUIIconsEnum>
     {
+        /// <summary>
+        /// Base CSS class used for Left to right direction
+        /// </summary>
         internal override string IconBaseCSSClassLtr
         {
             get { return "ui-icon ui-icon-helper-ltr"; }
         }
+        /// <summary>
+        /// Base CSS class used for Right to left direction
+        /// </summary>
         internal override string IconBaseCSSClassRtl
         {
             get { return "ui-icon ui-icon-helper-rtl"; }

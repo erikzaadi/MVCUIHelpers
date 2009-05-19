@@ -8,8 +8,18 @@ using System.Web.Routing;
 
 namespace MVCUIHelpers.IconsAndButtons.jQueryUI
 {
+    /// <summary>
+    /// jQuery UI Icons and Buttons HtmlHelper Class
+    /// 
+    /// This class exposes the Icons and Buttons 
+    /// Repository using a Html Helper
+    /// </summary>
     public static class jQueryIconsAndButtonsHtmlHelper
     {
+        /// <summary>
+        /// private jQuery UI Icons and Buttons Repository 
+        /// kind of Static Singleton
+        /// </summary>
         private static jQueryUIIconsAndButtonsRepository mjQueryUIIconsAndButtonsRepository
         {
             get
@@ -20,37 +30,62 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
 
         #region Icon
 
+        /// <summary>
+        /// Returns a jQuery UI Icon
+        /// </summary>
+        /// <param name="inIcon">jQuery UI Icon to show</param>
+        /// <returns>Html of jQuery UI Icon</returns>
         public static string jQueryUIIcon(this HtmlHelper helper,
            jQueryUIIconsEnum inIcon)
         {
             return jQueryUIIcon(helper, inIcon, null, Shared.Direction.Ltr);
         }
 
+        /// <summary>
+        /// Returns a jQuery UI Icon
+        /// </summary>
+        /// <param name="inIcon">jQuery UI Icon to show</param>
+        /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created icon</param>
+        /// <returns>Html of jQuery UI Icon</returns>
         public static string jQueryUIIcon(this HtmlHelper helper,
          jQueryUIIconsEnum inIcon,
          object htmlAttributes)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIcon(inIcon,
+            return mjQueryUIIconsAndButtonsRepository.GetIcon(inIcon,
                 htmlAttributes,
                 MVCUIHelpers.Shared.Direction.Ltr);
         }
 
+        /// <summary>
+        /// Returns a jQuery UI Icon
+        /// </summary>
+        /// <param name="inIcon">jQuery UI Icon to show</param>
+        /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created icon</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <returns>Html of jQuery UI Icon</returns>
         public static string jQueryUIIcon(this HtmlHelper helper,
             jQueryUIIconsEnum inIcon,
             object htmlAttributes,
             MVCUIHelpers.Shared.Direction inDirection)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIcon(inIcon,
+            return mjQueryUIIconsAndButtonsRepository.GetIcon(inIcon,
                 htmlAttributes,
                 inDirection);
         }
 
+        /// <summary>
+        /// Returns a jQuery UI Icon
+        /// </summary>
+        /// <param name="inIcon">jQuery UI Icon to show</param>
+        /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created icon</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <returns>Html of jQuery UI Icon</returns>
         public static string jQueryUIIcon(this HtmlHelper helper,
            jQueryUIIconsEnum inIcon,
            RouteValueDictionary htmlAttributes,
            MVCUIHelpers.Shared.Direction inDirection)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIcon(inIcon,
+            return mjQueryUIIconsAndButtonsRepository.GetIcon(inIcon,
                 htmlAttributes,
                 inDirection);
         }
@@ -59,6 +94,14 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
 
         #region Button
 
+        /// <summary>
+        /// Returns a button with an Icon
+        /// 
+        /// <example><code><![CDATA[<button type="Submit"><span class="baseClassForDirection">&nbsp;</span><span>ButtonText</span></button>]]></code></example>
+        /// </summary>
+        /// <param name="inText">Text to display on button</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <returns>Html of created Icon Button</returns>
         public static string jQueryUIIconButton(this HtmlHelper helper,
             string inText,
             jQueryUIIconsEnum inIcon)
@@ -73,6 +116,15 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 null);
         }
 
+        /// <summary>
+        /// Returns a button with an Icon
+        /// 
+        /// <example><code><![CDATA[<button type="Submit"><span class="baseClassForDirection">&nbsp;</span><span>ButtonText</span></button>]]></code></example>
+        /// </summary>
+        /// <param name="inText">Text to display on button</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
+        /// <returns>Html of created Icon Button</returns>
         public static string jQueryUIIconButton(this HtmlHelper helper,
             string inText,
             jQueryUIIconsEnum inIcon,
@@ -88,12 +140,21 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 null);
         }
 
+        /// <summary>
+        /// Returns a button with an Icon
+        /// 
+        /// <example><code><![CDATA[<button type="Submit"><span class="baseClassForDirection">&nbsp;</span><span>ButtonText</span></button>]]></code></example>
+        /// </summary>
+        /// <param name="inText">Text to display on button</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inButtonType">Type of button (Submit|Button|Reset)</param>
+        /// <returns>Html of created Icon Button</returns>
         public static string jQueryUIIconButton(this HtmlHelper helper,
             string inText,
             jQueryUIIconsEnum inIcon,
             MVCUIHelpers.Shared.ButtonType inButtonType)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconButton(
+            return mjQueryUIIconsAndButtonsRepository.GetIconButton(
                 inText,
                 inIcon,
                 inButtonType,
@@ -103,6 +164,16 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 null);
         }
 
+        /// <summary>
+        /// Returns a button with an Icon
+        /// 
+        /// <example><code><![CDATA[<button type="Submit"><span class="baseClassForDirection">&nbsp;</span><span>ButtonText</span></button>]]></code></example>
+        /// </summary>
+        /// <param name="inText">Text to display on button</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inButtonType">Type of button (Submit|Button|Reset)</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <returns>Html of created Icon Button</returns>
         public static string jQueryUIIconButton(this HtmlHelper helper,
            string inText,
            jQueryUIIconsEnum inIcon,
@@ -119,6 +190,17 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 null);
         }
 
+        /// <summary>
+        /// Returns a button with an Icon
+        /// 
+        /// <example><code><![CDATA[<button type="Submit"><span class="baseClassForDirection">&nbsp;</span><span>ButtonText</span></button>]]></code></example>
+        /// </summary>
+        /// <param name="inText">Text to display on button</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inButtonType">Type of button (Submit|Button|Reset)</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
+        /// <returns>Html of created Icon Button</returns>
         public static string jQueryUIIconButton(this HtmlHelper helper,
            string inText,
            jQueryUIIconsEnum inIcon,
@@ -136,6 +218,18 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 null);
         }
 
+        /// <summary>
+        /// Returns a button with an Icon
+        /// 
+        /// <example><code><![CDATA[<button type="Submit"><span class="baseClassForDirection">&nbsp;</span><span>ButtonText</span></button>]]></code></example>
+        /// </summary>
+        /// <param name="inText">Text to display on button</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inButtonType">Type of button (Submit|Button|Reset)</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
+        /// <param name="innerSpanHtmlAttributes">Additional html attributes dictionary to set to the created span for the button text</param>
+        /// <returns>Html of created Icon Button</returns>
         public static string jQueryUIIconButton(this HtmlHelper helper,
            string inText,
            jQueryUIIconsEnum inIcon,
@@ -154,6 +248,19 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 null);
         }
 
+        /// <summary>
+        /// Returns a button with an Icon
+        /// 
+        /// <example><code><![CDATA[<button type="Submit"><span class="baseClassForDirection">&nbsp;</span><span>ButtonText</span></button>]]></code></example>
+        /// </summary>
+        /// <param name="inText">Text to display on button</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inButtonType">Type of button (Submit|Button|Reset)</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
+        /// <param name="innerSpanHtmlAttributes">Additional html attributes dictionary to set to the created span for the button text</param>
+        /// <param name="innerIconHtmlAttributes">Additional html attributes dictionary to set to the created span for the Icon</param>
+        /// <returns>Html of created Icon Button</returns>
         public static string jQueryUIIconButton(this HtmlHelper helper,
             string inText,
             jQueryUIIconsEnum inIcon,
@@ -163,7 +270,7 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
             object innerSpanHtmlAttributes,
             object innerIconHtmlAttributes)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconButton(
+            return mjQueryUIIconsAndButtonsRepository.GetIconButton(
                 inText,
                 inIcon,
                 inButtonType,
@@ -173,6 +280,19 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 innerIconHtmlAttributes);
         }
 
+        /// <summary>
+        /// Returns a button with an Icon
+        /// 
+        /// <example><code><![CDATA[<button type="Submit"><span class="baseClassForDirection">&nbsp;</span><span>ButtonText</span></button>]]></code></example>
+        /// </summary>
+        /// <param name="inText">Text to display on button</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inButtonType">Type of button (Submit|Button|Reset)</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
+        /// <param name="innerSpanHtmlAttributes">Additional html attributes dictionary to set to the created span for the button text</param>
+        /// <param name="innerIconHtmlAttributes">Additional html attributes dictionary to set to the created span for the Icon</param>
+        /// <returns>Html of created Icon Button</returns>
         public static string jQueryUIIconButton(this HtmlHelper helper,
            string inText,
            jQueryUIIconsEnum inIcon,
@@ -182,7 +302,7 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
            RouteValueDictionary innerSpanHtmlAttributes,
            RouteValueDictionary innerIconHtmlAttributes)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconButton(
+            return mjQueryUIIconsAndButtonsRepository.GetIconButton(
                 inText,
                 inIcon,
                 inButtonType,
@@ -196,12 +316,19 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
 
         #region Link
 
+        /// <summary>
+        /// Returns a link with an Icon
+        /// </summary>
+        /// <param name="inText">Link Text</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inUrl">Link Url (href)</param>
+        /// <returns>Html of created Icon Link</returns>
         public static string jQueryUIIconLink(this HtmlHelper helper,
             string inText,
             jQueryUIIconsEnum inIcon,
             string inUrl)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconLink(
+            return mjQueryUIIconsAndButtonsRepository.GetIconLink(
                 inText,
                 inIcon,
                 MVCUIHelpers.Shared.Direction.Ltr,
@@ -211,13 +338,21 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 null);
         }
 
+        /// <summary>
+        /// Returns a link with an Icon
+        /// </summary>
+        /// <param name="inText">Link Text</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <param name="inUrl">Link Url (href)</param>
+        /// <returns>Html of created Icon Link</returns>
         public static string jQueryUIIconLink(this HtmlHelper helper,
             string inText,
             jQueryUIIconsEnum inIcon,
             string inUrl,
             MVCUIHelpers.Shared.Direction inDirection)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconLink(
+            return mjQueryUIIconsAndButtonsRepository.GetIconLink(
                 inText,
                 inIcon,
                 inDirection,
@@ -227,6 +362,17 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 null);
         }
 
+        /// <summary>
+        /// Returns a link with an Icon
+        /// </summary>
+        /// <param name="inText">Link Text</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <param name="inUrl">Link Url (href)</param>
+        /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
+        /// <param name="innerSpanHtmlAttributes">Additional html attributes dictionary to set to the created span for the button text</param>
+        /// <param name="innerIconHtmlAttributes">Additional html attributes dictionary to set to the created span for the Icon</param>
+        /// <returns>Html of created Icon Link</returns>
         public static string jQueryUIIconLink(this HtmlHelper helper,
             string inText,
             jQueryUIIconsEnum inIcon,
@@ -236,7 +382,7 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
             object innerSpanHtmlAttributes,
             object innerIconHtmlAttributes)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconLink(
+            return mjQueryUIIconsAndButtonsRepository.GetIconLink(
                 inText,
                 inIcon,
                 inDirection,
@@ -246,6 +392,17 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 innerIconHtmlAttributes);
         }
 
+        /// <summary>
+        /// Returns a link with an Icon
+        /// </summary>
+        /// <param name="inText">Link Text</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <param name="inUrl">Link Url (href)</param>
+        /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
+        /// <param name="innerSpanHtmlAttributes">Additional html attributes dictionary to set to the created span for the button text</param>
+        /// <param name="innerIconHtmlAttributes">Additional html attributes dictionary to set to the created span for the Icon</param>
+        /// <returns>Html of created Icon Link</returns>
         public static string jQueryUIIconLink(this HtmlHelper helper,
                    string inText,
                    jQueryUIIconsEnum inIcon,
@@ -255,7 +412,7 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                    RouteValueDictionary innerSpanHtmlAttributes,
                    RouteValueDictionary innerIconHtmlAttributes)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconLink(
+            return mjQueryUIIconsAndButtonsRepository.GetIconLink(
                 inText,
                 inIcon,
                 inDirection,
@@ -269,12 +426,20 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
 
         #region Generic Element
 
+        /// <summary>
+        /// Returns a given element with an Icon
+        /// </summary>
+        /// <param name="inText">Text to display in Element</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inElement">Html Element
+        /// <example><code>a|div|li</code> etc</example></param>
+        /// <returns>Html of created element with Icon</returns>
         public static string jQueryUIIconForElement(this HtmlHelper helper,
             string inText,
             jQueryUIIconsEnum inIcon,
             string inElement)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconForElement(
+            return mjQueryUIIconsAndButtonsRepository.GetIconForElement(
                 inText,
                 inIcon,
                 MVCUIHelpers.Shared.Direction.Ltr,
@@ -283,13 +448,23 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 null,
                 null);
         }
+
+        /// <summary>
+        /// Returns a given element with an Icon
+        /// </summary>
+        /// <param name="inText">Text to display in Element</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <param name="inElement">Html Element
+        /// <example><code>a|div|li</code> etc</example></param>
+        /// <returns>Html of created element with Icon</returns>
         public static string jQueryUIIconForElement(this HtmlHelper helper,
             string inText,
             jQueryUIIconsEnum inIcon,
             string inElement,
             MVCUIHelpers.Shared.Direction inDirection)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconForElement(
+            return mjQueryUIIconsAndButtonsRepository.GetIconForElement(
                 inText,
                 inIcon,
                 inDirection,
@@ -299,6 +474,18 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 null);
         }
 
+        /// <summary>
+        /// Returns a given element with an Icon
+        /// </summary>
+        /// <param name="inText">Text to display in Element</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <param name="inElement">Html Element
+        /// <example><code>a|div|li</code> etc</example></param>
+        /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
+        /// <param name="innerSpanHtmlAttributes">Additional html attributes dictionary to set to the created span for the button text</param>
+        /// <param name="innerIconHtmlAttributes">Additional html attributes dictionary to set to the created span for the Icon</param>
+        /// <returns>Html of created element with Icon</returns>
         public static string jQueryUIIconForElement(this HtmlHelper helper,
             string inText,
             jQueryUIIconsEnum inIcon,
@@ -308,7 +495,7 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
             object innerSpanHtmlAttributes,
             object innerIconHtmlAttributes)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconForElement(
+            return mjQueryUIIconsAndButtonsRepository.GetIconForElement(
                 inText,
                 inIcon,
                 inDirection,
@@ -318,6 +505,18 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
                 innerIconHtmlAttributes);
         }
 
+        /// <summary>
+        /// Returns a given element with an Icon
+        /// </summary>
+        /// <param name="inText">Text to display in Element</param>
+        /// <param name="inIcon">Icon to show</param>
+        /// <param name="inDirection">Direction (Ltr|Rtl)</param>
+        /// <param name="inElement">Html Element
+        /// <example><code>a|div|li</code> etc</example></param>
+        /// <param name="htmlAttributes">Additional html attributes dictionary to set to the created button</param>
+        /// <param name="innerSpanHtmlAttributes">Additional html attributes dictionary to set to the created span for the button text</param>
+        /// <param name="innerIconHtmlAttributes">Additional html attributes dictionary to set to the created span for the Icon</param>
+        /// <returns>Html of created element with Icon</returns>
         public static string jQueryUIIconForElement(this HtmlHelper helper,
             string inText,
             jQueryUIIconsEnum inIcon,
@@ -327,7 +526,7 @@ namespace MVCUIHelpers.IconsAndButtons.jQueryUI
             RouteValueDictionary innerSpanHtmlAttributes,
             RouteValueDictionary innerIconHtmlAttributes)
         {
-            return mjQueryUIIconsAndButtonsRepository.GetSpriteIconForElement(
+            return mjQueryUIIconsAndButtonsRepository.GetIconForElement(
                 inText,
                 inIcon,
                 inDirection,

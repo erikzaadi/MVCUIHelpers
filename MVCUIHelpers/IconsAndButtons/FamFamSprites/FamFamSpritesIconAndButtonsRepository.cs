@@ -6,6 +6,9 @@ using System.ComponentModel;
 
 namespace MVCUIHelpers.IconsAndButtons.FamFamSprites
 {
+    /// <summary>
+    /// Fam Fam Sprites Icons Enum
+    /// </summary>
     public enum FamFamSpritesEnum
     {
         [Description("ss_accept")]
@@ -2025,15 +2028,37 @@ namespace MVCUIHelpers.IconsAndButtons.FamFamSprites
         scriptForEnum.text = "$('body').append('<div id=\"toAppend\"/>');var $div = $(\"#toAppend\");var html = new Array();var description = '[Description(\"NAME\")]';var name = '<br/>NAME,<br/>';$('.ss_sprite').each(function(){var current = $(this).attr('class').replace(\"ss_sprite \", \"\");var currentDescription = description.replace(\"NAME\",current);var currentEnumElement = name.replace(\"NAME\",current.replace(\"ss_\", \"\"));html.push(currentDescription + currentEnumElement);});$div.html(html.join(''));";
         head.appendChild(scriptForEnum );
    */
+    /// <summary>
+    /// Fam Fam Sprites Icons and Buttons Repository Class
+    /// 
+    /// Implementation of the Icons and Buttons Repository
+    /// that uses the Fam Fam Fam Icons
+    /// http://Link to FamFamSite
+    /// 
+    /// As used in the BluePrintCSS Framework http://blueprintcss.org
+    /// plugin called Sprites http://link to sprite plugin
+    /// 
+    /// 
+    /// You'll need to include the sprites.css in order to use 
+    /// this repository (be sure to copy the sprites png image).
+    /// 
+    /// </summary>
     public class FamFamSpritesIconAndButtonsRepository : IconsAndButtonsBase<FamFamSpritesEnum>
     {
+        /// <summary>
+        /// Base CSS class used for Left to right direction
+        /// </summary>
         internal override string IconBaseCSSClassRtl
         {
             get { return "ss_sprite"; }
         }
+        /// <summary>
+        /// The Fam Fam Sprites CSS does not need a different
+        /// class per direction
+        /// </summary>
         internal override string IconBaseCSSClassLtr
         {
-            get { return "ss_sprite"; }
+            get { return IconBaseCSSClassRtl; }
         }
     }
 }
